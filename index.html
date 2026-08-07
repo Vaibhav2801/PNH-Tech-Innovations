@@ -746,24 +746,59 @@ a {
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
   margin: 0;
+  overflow: hidden;
   padding: 0;
 }
 
 .process-grid li {
+  background: white;
   border-right: 1px solid var(--line);
-  min-height: 260px;
-  padding: 30px 40px 0 0;
+  min-height: 470px;
+  padding: 0;
 }
 
 .process-grid li:not(:first-child) {
-  padding-left: 40px;
+  padding-left: 0;
 }
 
 .process-grid li:last-child {
   border-right: 0;
 }
 
-.process-grid li > span {
+.process-image {
+  aspect-ratio: 3 / 2;
+  background: #dce5eb;
+  border-bottom: 1px solid var(--line);
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.process-image::after {
+  background: linear-gradient(180deg, transparent 54%, rgba(6, 36, 66, .34));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.process-image img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 420ms ease;
+  width: 100%;
+}
+
+.process-grid li:hover .process-image img {
+  transform: scale(1.035);
+}
+
+.process-step-copy {
+  padding: 28px clamp(24px, 2.8vw, 40px) 38px;
+}
+
+.process-step-copy > span {
   color: var(--blue);
   font-family: var(--font-geist-mono), monospace;
   font-size: 11px;
@@ -774,7 +809,7 @@ a {
   font-size: 23px;
   font-weight: 650;
   letter-spacing: -0.035em;
-  margin: 58px 0 12px;
+  margin: 26px 0 12px;
 }
 
 .process-grid p {
@@ -1055,7 +1090,7 @@ footer > p:last-child {
   }
 
   .process-grid h3 {
-    margin-top: 40px;
+    margin-top: 24px;
   }
 
   .contact-section {
@@ -1184,8 +1219,12 @@ footer > p:last-child {
   .process-grid li:not(:first-child) {
     border-bottom: 1px solid var(--line);
     border-right: 0;
-    min-height: 230px;
-    padding: 28px 0;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .process-step-copy {
+    padding: 24px 0 34px;
   }
 
   .contact-section {
@@ -1453,19 +1492,34 @@ footer > p:last-child {
 
         <ol class="process-grid">
           <li>
-            <span>01</span>
-            <h3>Connect directly</h3>
-            <p>Call Achal Singhal or Rahul Jain, or email our team using the details below.</p>
+            <figure class="process-image">
+              <img src="./assets/process-connect.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Steel industry professional discussing a material requirement by phone" />
+            </figure>
+            <div class="process-step-copy">
+              <span>01</span>
+              <h3>Connect directly</h3>
+              <p>Call Achal Singhal or Rahul Jain, or email our team using the details below.</p>
+            </div>
           </li>
           <li>
-            <span>02</span>
-            <h3>Share your requirement</h3>
-            <p>Include the material, specification, quantity and expected timeline.</p>
+            <figure class="process-image">
+              <img src="./assets/process-requirement.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Steel sections being checked with a precision caliper" />
+            </figure>
+            <div class="process-step-copy">
+              <span>02</span>
+              <h3>Share your requirement</h3>
+              <p>Include the material, specification, quantity and expected timeline.</p>
+            </div>
           </li>
           <li>
-            <span>03</span>
-            <h3>Discuss commercial details</h3>
-            <p>Confirm current availability and the details relevant to your enquiry.</p>
+            <figure class="process-image">
+              <img src="./assets/process-details.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Industrial procurement professionals discussing steel inventory" />
+            </figure>
+            <div class="process-step-copy">
+              <span>03</span>
+              <h3>Discuss commercial details</h3>
+              <p>Confirm current availability and the details relevant to your enquiry.</p>
+            </div>
           </li>
         </ol>
       </section>
