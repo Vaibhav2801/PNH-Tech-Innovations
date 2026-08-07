@@ -9,23 +9,1270 @@
     />
     <meta name="theme-color" content="#062442" />
     <title>PNH Tech Innovations Pvt Ltd</title>
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./assets/pnh-logo.png" type="image/png" />
+    <style>
+:root {
+  --ink: #061e33;
+  --ink-soft: #4c6173;
+  --blue: #0b94d8;
+  --blue-bright: #18b8ef;
+  --navy: #062442;
+  --paper: #f5f8fa;
+  --line: rgba(6, 30, 51, 0.12);
+  --font-geist-sans: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-geist-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  align-items: center;
+  background: rgba(247, 250, 252, 0.88);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  height: 116px;
+  padding: 0 clamp(24px, 5vw, 80px);
+  position: relative;
+  z-index: 20;
+}
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+  justify-self: start;
+}
+
+.brand-logo {
+  background: #fff;
+  display: block;
+  height: auto;
+  max-height: 104px;
+  object-fit: contain;
+  width: 166px;
+}
+
+.desktop-nav {
+  align-items: center;
+  display: flex;
+  gap: 34px;
+}
+
+.desktop-nav a {
+  color: #435567;
+  font-size: 14px;
+  font-weight: 620;
+  transition: color 180ms ease;
+}
+
+.desktop-nav a:hover {
+  color: var(--blue);
+}
+
+.header-cta {
+  align-items: center;
+  background: var(--navy);
+  color: white;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 12px;
+  justify-self: end;
+  padding: 13px 18px;
+}
+
+.header-cta span,
+.button span {
+  color: var(--blue-bright);
+}
+
+.hero {
+  background: var(--navy);
+  color: white;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  min-height: min(720px, calc(100vh - 116px));
+  overflow: hidden;
+  padding-left: clamp(24px, 6.8vw, 104px);
+  position: relative;
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  inset: 0;
+  mask-image: linear-gradient(to right, black, transparent 80%);
+  position: absolute;
+}
+
+.hero-glow {
+  background: var(--blue);
+  border-radius: 50%;
+  filter: blur(120px);
+  height: 260px;
+  opacity: 0.22;
+  position: absolute;
+  right: 36%;
+  top: 15%;
+  width: 260px;
+}
+
+.hero-content {
+  align-self: center;
+  max-width: 720px;
+  padding: 76px 52px 84px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  align-items: center;
+  color: #a9c6d8;
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.13em;
+  margin: 0 0 28px;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  background: var(--blue-bright);
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  margin-right: 12px;
+  width: 8px;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 5.6vw, 84px);
+  font-weight: 680;
+  letter-spacing: -0.06em;
+  line-height: 0.97;
+  margin: 0;
+  max-width: 760px;
+}
+
+.hero h1 em {
+  color: var(--blue-bright);
+  font-style: normal;
+  font-weight: 560;
+}
+
+.hero-copy {
+  color: #b9cad6;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.65;
+  margin: 30px 0 0;
+  max-width: 600px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.button {
+  align-items: center;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 18px;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 20px;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--blue);
+  color: white;
+}
+
+.button-primary span {
+  color: white;
+}
+
+.button-primary:hover {
+  background: #0fa6ec;
+}
+
+.button-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: white;
+}
+
+.button-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.hero-contact {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  gap: 6px 28px;
+  grid-template-columns: auto auto 1fr;
+  margin-top: 48px;
+  max-width: 600px;
+  padding-top: 20px;
+}
+
+.hero-contact span {
+  color: #7895aa;
+  font-size: 11px;
+  font-weight: 700;
+  grid-row: span 2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-contact strong {
+  font-size: 14px;
+}
+
+.hero-contact a {
+  color: #a9c6d8;
+  font-size: 13px;
+  grid-column: 2 / -1;
+}
+
+.hero-visual {
+  min-height: 620px;
+  position: relative;
+}
+
+.hero-image {
+  background-image: linear-gradient(90deg, var(--navy) 0%, rgba(6,36,66,.32) 36%, rgba(6,36,66,.03) 74%), linear-gradient(0deg, rgba(6,36,66,.45), transparent 50%), url('./assets/pnh-industrial-hero.png');
+  background-position: center;
+  background-size: cover;
+  inset: 0;
+  position: absolute;
+}
+
+.hero-image::after {
+  background: linear-gradient(135deg, transparent 72%, var(--blue) 72% 78%, #0a559a 78% 84%, transparent 84%);
+  content: "";
+  inset: 0;
+  opacity: 0.75;
+  position: absolute;
+}
+
+.hero-orbit {
+  border: 1px solid rgba(92, 205, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.orbit-one {
+  height: 360px;
+  right: -145px;
+  top: 62px;
+  width: 360px;
+}
+
+.orbit-two {
+  height: 250px;
+  right: -90px;
+  top: 117px;
+  width: 250px;
+}
+
+.hero-stat {
+  backdrop-filter: blur(16px);
+  background: rgba(4, 26, 47, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  bottom: 42px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  left: 36px;
+  min-width: 208px;
+  padding: 18px 20px;
+  position: absolute;
+}
+
+.hero-stat span {
+  color: #93aabd;
+  font-size: 10px;
+  grid-column: 1 / -1;
+  letter-spacing: 0.16em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.hero-stat strong {
+  color: var(--blue-bright);
+  font-size: 38px;
+  line-height: 1;
+}
+
+.hero-stat small {
+  align-self: end;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+}
+
+.material-ribbon {
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(32px, 6vw, 90px);
+  min-height: 106px;
+  padding: 24px clamp(24px, 6.8vw, 104px);
+}
+
+.material-ribbon > p {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.ribbon-list {
+  align-items: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.ribbon-list span {
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  font-weight: 680;
+  white-space: nowrap;
+}
+
+.ribbon-list span::before {
+  background: var(--blue);
+  border-radius: 50%;
+  content: "";
+  height: 5px;
+  margin-right: 12px;
+  width: 5px;
+}
+
+.section-shell {
+  padding: 128px clamp(24px, 6.8vw, 104px);
+}
+
+.section-heading {
+  align-items: end;
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 1.3fr 0.7fr;
+  margin-bottom: 64px;
+}
+
+.section-kicker {
+  align-items: center;
+  color: var(--blue);
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  background: currentColor;
+  content: "";
+  height: 1px;
+  margin-right: 12px;
+  width: 28px;
+}
+
+.section-kicker-light {
+  color: var(--blue-bright);
+}
+
+.section-heading h2,
+.about-copy h2,
+.clients-heading h2,
+.process-intro h2,
+.contact-heading h2 {
+  font-size: clamp(38px, 4.5vw, 68px);
+  font-weight: 620;
+  letter-spacing: -0.055em;
+  line-height: 1.03;
+  margin: 0;
+}
+
+.section-heading > p {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 0 0 5px;
+  max-width: 430px;
+}
+
+.material-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.material-card {
+  background: white;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 390px;
+  padding: 28px;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.material-card:hover {
+  box-shadow: 0 28px 70px rgba(6, 30, 51, 0.1);
+  position: relative;
+  transform: translateY(-6px);
+  z-index: 2;
+}
+
+.material-card:nth-child(1) {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.material-card-top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.material-card-top span:first-child {
+  color: var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.material-card:nth-child(1) .material-card-top span:first-child,
+.material-card:nth-child(1) a span {
+  color: white;
+}
+
+.material-card-top span:last-child {
+  color: #8294a3;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.material-card:nth-child(1) .material-card-top span:last-child,
+.material-card:nth-child(1) p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.material-card h3 {
+  font-size: clamp(25px, 2.2vw, 35px);
+  font-weight: 630;
+  letter-spacing: -0.045em;
+  margin: 0 0 16px;
+}
+
+.material-card p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.material-card > a {
+  align-items: center;
+  border-top: 1px solid currentColor;
+  display: flex;
+  font-size: 13px;
+  font-weight: 750;
+  justify-content: space-between;
+  opacity: 0.92;
+  padding-top: 17px;
+}
+
+.material-card > a span {
+  color: var(--blue);
+}
+
+.about-section {
+  background: #051c31;
+  color: white;
+  display: grid;
+  grid-template-columns: minmax(380px, 0.9fr) minmax(0, 1.1fr);
+  min-height: 720px;
+}
+
+.about-visual {
+  background-image: linear-gradient(0deg, rgba(5,28,49,.65), rgba(5,28,49,.06)), url('./assets/pnh-industrial-hero.png');
+  background-position: 76% center;
+  background-size: cover;
+  min-height: 620px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-visual::after {
+  background: linear-gradient(90deg, transparent, #051c31);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.about-visual > p {
+  bottom: 54px;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: clamp(100px, 16vw, 230px);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+  line-height: 0.8;
+  margin: 0;
+  position: absolute;
+  right: -12px;
+  z-index: 2;
+}
+
+.about-ring {
+  border: 1px solid rgba(39, 190, 246, 0.6);
+  border-radius: 50%;
+  height: 380px;
+  left: -190px;
+  position: absolute;
+  top: 90px;
+  width: 380px;
+}
+
+.about-lines {
+  background: linear-gradient(135deg, transparent 0 46%, rgba(17, 164, 226, .7) 46% 50%, transparent 50% 57%, rgba(17, 164, 226, .34) 57% 61%, transparent 61%);
+  bottom: 0;
+  height: 280px;
+  left: 0;
+  position: absolute;
+  width: 280px;
+}
+
+.about-copy {
+  align-self: center;
+  max-width: 780px;
+  padding: 90px clamp(32px, 8vw, 130px) 90px clamp(48px, 6vw, 96px);
+}
+
+.about-lead {
+  color: #c5d6e2;
+  font-size: 20px !important;
+  line-height: 1.68 !important;
+  margin-top: 32px !important;
+}
+
+.about-copy > p:not(.section-kicker) {
+  color: #8fa8ba;
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 18px 0 0;
+  max-width: 640px;
+}
+
+.company-facts {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 46px 0 0;
+  padding-top: 24px;
+}
+
+.company-facts div {
+  padding-right: 24px;
+}
+
+.company-facts dt {
+  color: #6f8ba0;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.company-facts dd {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.clients-section {
+  background: #eaf2f7;
+  padding: 118px clamp(24px, 6.8vw, 104px);
+}
+
+.clients-heading {
+  align-items: end;
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 1.3fr 0.7fr;
+  margin-bottom: 56px;
+}
+
+.clients-heading > p {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 0 0 5px;
+  max-width: 430px;
+}
+
+.client-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.client-card {
+  background: white;
+  border: 1px solid rgba(6, 30, 51, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  overflow: hidden;
+  padding: 28px;
+  position: relative;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.client-card::after {
+  background: var(--blue);
+  bottom: 0;
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0.18);
+  transform-origin: left;
+  transition: transform 180ms ease;
+  width: 100%;
+}
+
+.client-card:hover {
+  border-color: rgba(11, 148, 216, 0.45);
+  transform: translateY(-4px);
+}
+
+.client-card:hover::after {
+  transform: scaleX(1);
+}
+
+.client-card > span {
+  color: var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.client-card h3 {
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.client-card p {
+  color: #7b8d9c;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.process-section {
+  background: white;
+}
+
+.process-intro {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 0.6fr 1.4fr;
+  margin-bottom: 70px;
+}
+
+.process-intro .section-kicker {
+  align-self: start;
+  margin-top: 12px;
+}
+
+.process-intro h2 {
+  max-width: 780px;
+}
+
+.process-grid {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.process-grid li {
+  border-right: 1px solid var(--line);
+  min-height: 260px;
+  padding: 30px 40px 0 0;
+}
+
+.process-grid li:not(:first-child) {
+  padding-left: 40px;
+}
+
+.process-grid li:last-child {
+  border-right: 0;
+}
+
+.process-grid li > span {
+  color: var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.process-grid h3 {
+  font-size: 23px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  margin: 58px 0 12px;
+}
+
+.process-grid p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 320px;
+}
+
+.contact-section {
+  background: var(--navy);
+  color: white;
+  display: grid;
+  gap: clamp(48px, 8vw, 130px);
+  grid-template-columns: 0.85fr 1.15fr;
+  padding: 128px clamp(24px, 6.8vw, 104px);
+  position: relative;
+}
+
+.contact-section::before {
+  border: 1px solid rgba(31, 187, 240, .35);
+  border-radius: 50%;
+  content: "";
+  height: 480px;
+  left: -330px;
+  position: absolute;
+  top: 100px;
+  width: 480px;
+}
+
+.contact-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-heading h2 {
+  font-size: clamp(54px, 6.5vw, 100px);
+}
+
+.contact-heading > p:last-child {
+  color: #9cb3c4;
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 28px 0 0;
+  max-width: 460px;
+}
+
+.contact-panel {
+  background: white;
+  color: var(--ink);
+  padding: clamp(28px, 4vw, 58px);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-people {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.contact-person-card {
+  padding-bottom: 30px;
+}
+
+.contact-person-card + .contact-person-card {
+  border-left: 1px solid var(--line);
+  padding-left: 28px;
+}
+
+.contact-person-card p {
+  color: var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.contact-person-card h3 {
+  font-size: 34px;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  margin: 0 0 5px;
+}
+
+.contact-person-card > span {
+  color: var(--ink-soft);
+  display: block;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.contact-person-card a {
+  display: block;
+  font-size: 16px;
+  font-weight: 680;
+  line-height: 1.55;
+}
+
+.contact-person-card a:hover {
+  color: var(--blue);
+}
+
+.contact-person-card small {
+  color: #7b8d9c;
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.contact-links {
+  padding: 12px 0 22px;
+}
+
+.contact-row {
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 90px 1fr;
+  padding: 22px 0;
+}
+
+.contact-row > span {
+  color: #7b8d9c;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.contact-row a,
+.contact-row address {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.contact-row div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-row a:hover {
+  color: var(--blue);
+}
+
+.contact-address address {
+  color: #3f5567;
+  font-weight: 480;
+}
+
+.contact-actions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.contact-email-button {
+  border: 1px solid var(--line);
+}
+
+.contact-email-button span {
+  color: var(--blue);
+}
+
+footer {
+  align-items: center;
+  background: #031727;
+  color: #8ca2b3;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr auto 1fr;
+  min-height: 120px;
+  padding: 24px clamp(24px, 6.8vw, 104px);
+}
+
+.footer-brand .brand-logo {
+  border-radius: 2px;
+  width: 142px;
+}
+
+footer > p {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+footer > p:last-child {
+  justify-self: end;
+}
+
+.mobile-contact-bar {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .hero-content {
+    padding: 74px 28px 36px;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .hero-image {
+    background-image: linear-gradient(180deg, var(--navy) 0%, rgba(6,36,66,.1) 34%), linear-gradient(0deg, rgba(6,36,66,.4), transparent 50%), url('./assets/pnh-industrial-hero.png');
+  }
+
+  .material-ribbon {
+    grid-template-columns: 1fr;
+  }
+
+  .ribbon-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-shell {
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }
+
+  .section-heading {
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .clients-heading {
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .client-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .material-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-visual {
+    min-height: 470px;
+  }
+
+  .about-visual::after {
+    background: linear-gradient(180deg, transparent, #051c31);
+  }
+
+  .about-copy {
+    padding: 74px 28px 90px;
+  }
+
+  .process-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid h3 {
+    margin-top: 40px;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer > p:first-of-type {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    height: 88px;
+    padding: 0 18px;
+  }
+
+  .brand-logo {
+    max-height: 78px;
+    width: 124px;
+  }
+
+  .header-cta {
+    font-size: 12px;
+    padding: 11px 13px;
+  }
+
+  .hero-content {
+    padding-top: 60px;
+  }
+
+  .hero h1 {
+    font-size: clamp(45px, 13vw, 64px);
+  }
+
+  .hero-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-contact span {
+    grid-row: auto;
+  }
+
+  .hero-contact a {
+    grid-column: auto;
+  }
+
+  .hero-visual {
+    min-height: 330px;
+  }
+
+  .hero-stat {
+    bottom: 22px;
+    left: 18px;
+  }
+
+  .material-ribbon {
+    gap: 24px;
+    padding: 28px 18px;
+  }
+
+  .ribbon-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section-shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 42px;
+  }
+
+  .material-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .material-card {
+    min-height: 330px;
+  }
+
+  .about-visual {
+    min-height: 360px;
+  }
+
+  .about-copy {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .company-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .company-facts div {
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 16px 0;
+  }
+
+  .clients-section {
+    padding: 82px 18px;
+  }
+
+  .clients-heading {
+    margin-bottom: 38px;
+  }
+
+  .client-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-card {
+    min-height: 190px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid li,
+  .process-grid li:not(:first-child) {
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
+    min-height: 230px;
+    padding: 28px 0;
+  }
+
+  .contact-section {
+    padding: 90px 18px;
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .contact-people {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-person-card + .contact-person-card {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 28px;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    padding-bottom: 90px;
+  }
+
+  footer > p:last-child {
+    justify-self: start;
+  }
+
+  .mobile-contact-bar {
+    background: white;
+    bottom: 0;
+    box-shadow: 0 -8px 30px rgba(6,30,51,.12);
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    left: 0;
+    padding: 8px;
+    position: fixed;
+    right: 0;
+    z-index: 50;
+  }
+
+  .mobile-contact-bar a {
+    background: var(--navy);
+    color: white;
+    font-size: 13px;
+    font-weight: 750;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .mobile-contact-bar a:first-child {
+    background: var(--blue);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+    </style>
   </head>
   <body>
     <main>
       <header class="site-header">
         <a class="brand" href="#top" aria-label="PNH Tech Innovations home">
-          <span class="brand-mark" aria-hidden="true"><span></span></span>
-          <span class="brand-copy">
-            <span class="brand-name"><b>PN</b>H</span>
-            <span class="brand-subtitle">Tech Innovations <em>Pvt Ltd</em></span>
-          </span>
+          <img class="brand-logo" src="./assets/pnh-logo.png" width="1583" height="993" alt="PNH Tech Innovations Pvt Ltd" />
         </a>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="#materials">Materials</a>
           <a href="#about">About</a>
+          <a href="#clients">Clients</a>
           <a href="#process">Process</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -55,8 +1302,8 @@
             </a>
           </div>
           <div class="hero-contact">
-            <span>Direct contact</span>
-            <strong>Achal Singhal</strong>
+            <span>Sales contacts</span>
+            <strong>Achal Singhal · Rahul Jain</strong>
             <a href="mailto:pnhtech07@gmail.com">pnhtech07@gmail.com</a>
           </div>
         </div>
@@ -150,15 +1397,51 @@
             semi-finished products.
           </p>
           <p>
-            Reach Achal Singhal directly to discuss the material, quantity and
-            commercial requirement relevant to your business.
+            Reach Achal Singhal or Rahul Jain directly to discuss the material,
+            quantity and commercial requirement relevant to your business.
           </p>
 
           <dl class="company-facts">
             <div><dt>Company</dt><dd>PNH Tech Innovations Pvt Ltd</dd></div>
-            <div><dt>Contact</dt><dd>Achal Singhal</dd></div>
+            <div><dt>Contacts</dt><dd>Achal Singhal · Rahul Jain</dd></div>
             <div><dt>Location</dt><dd>Muzaffarnagar, Uttar Pradesh</dd></div>
           </dl>
+        </div>
+      </section>
+
+      <section class="clients-section" id="clients">
+        <div class="clients-heading">
+          <div>
+            <p class="section-kicker">Our customers</p>
+            <h2>Relationships built<br />through reliable trade.</h2>
+          </div>
+          <p>
+            We are proud to serve customers across the steel industry with
+            direct communication and a practical approach to material requirements.
+          </p>
+        </div>
+
+        <div class="client-grid" aria-label="PNH Tech Innovations customers">
+          <article class="client-card">
+            <span>01</span>
+            <h3>Amba Shakti</h3>
+            <p>Customer</p>
+          </article>
+          <article class="client-card">
+            <span>02</span>
+            <h3>Tehri Iron &amp; Steels</h3>
+            <p>Customer</p>
+          </article>
+          <article class="client-card">
+            <span>03</span>
+            <h3>Rana Max</h3>
+            <p>Customer</p>
+          </article>
+          <article class="client-card">
+            <span>04</span>
+            <h3>Swaroop Saria</h3>
+            <p>Customer</p>
+          </article>
         </div>
       </section>
 
@@ -172,7 +1455,7 @@
           <li>
             <span>01</span>
             <h3>Connect directly</h3>
-            <p>Call or email Achal Singhal using the contact details below.</p>
+            <p>Call Achal Singhal or Rahul Jain, or email our team using the details below.</p>
           </li>
           <li>
             <span>02</span>
@@ -193,41 +1476,55 @@
           <h2>Let’s talk<br />materials.</h2>
           <p>
             For product requirements, availability and commercial enquiries,
-            contact Achal Singhal.
+            contact Achal Singhal or Rahul Jain.
           </p>
         </div>
 
         <div class="contact-panel">
-          <div class="contact-person">
-            <p>Your point of contact</p>
-            <h3>Achal Singhal</h3>
-            <span>PNH Tech Innovations Pvt Ltd</span>
+          <div class="contact-people">
+            <div class="contact-person-card">
+              <p>Muzaffarnagar contact</p>
+              <h3>Achal Singhal</h3>
+              <span>PNH Tech Innovations Pvt Ltd</span>
+              <a href="tel:+917906051803">+91 79060 51803</a>
+              <a href="tel:+919084681803">+91 90846 81803</a>
+              <small>Muzaffarnagar, Uttar Pradesh</small>
+            </div>
+            <div class="contact-person-card">
+              <p>Panipat contact</p>
+              <h3>Rahul Jain</h3>
+              <span>PNH Tech Innovations Pvt Ltd</span>
+              <a href="tel:+919896216075">+91 98962 16075</a>
+              <small>Panipat, Haryana</small>
+            </div>
           </div>
 
           <div class="contact-links">
-            <div class="contact-row">
-              <span>Phone</span>
-              <div>
-                <a href="tel:+917906051803">+91 79060 51803</a>
-                <a href="tel:+919084681803">+91 90846 81803</a>
-              </div>
-            </div>
             <div class="contact-row">
               <span>Email</span>
               <a href="mailto:pnhtech07@gmail.com">pnhtech07@gmail.com</a>
             </div>
             <div class="contact-row contact-address">
-              <span>Address</span>
+              <span>Registered office</span>
               <address>
                 448/3, South Civil Lines, Keshavpuri<br />
                 Muzaffarnagar – 2501002<br />
                 Uttar Pradesh, India
               </address>
             </div>
+            <div class="contact-row contact-address">
+              <span>Godown address</span>
+              <address>
+                KHASRA NO. 1289 &amp; 1293, VILLAGE VEHLNA<br />
+                Rana Chowk, Muzaffarnagar, Uttar Pradesh<br />
+                251003, India
+              </address>
+            </div>
           </div>
 
           <div class="contact-actions">
             <a class="button button-primary" href="tel:+917906051803">Call Achal <span aria-hidden="true">↗</span></a>
+            <a class="button contact-email-button" href="tel:+919896216075">Call Rahul <span aria-hidden="true">↗</span></a>
             <a class="button contact-email-button" href="mailto:pnhtech07@gmail.com?subject=Material%20Enquiry%20for%20PNH%20Tech%20Innovations">Send an email <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -235,18 +1532,15 @@
 
       <footer>
         <a class="brand footer-brand" href="#top" aria-label="PNH Tech Innovations home">
-          <span class="brand-mark" aria-hidden="true"><span></span></span>
-          <span class="brand-copy">
-            <span class="brand-name"><b>PN</b>H</span>
-            <span class="brand-subtitle">Tech Innovations <em>Pvt Ltd</em></span>
-          </span>
+          <img class="brand-logo" src="./assets/pnh-logo.png" width="1583" height="993" alt="PNH Tech Innovations Pvt Ltd" />
         </a>
         <p>MS Scrap · MS Ingots · MS Billets · MS Sponge Iron</p>
         <p>© <span id="year">2026</span> PNH Tech Innovations Pvt Ltd</p>
       </footer>
 
       <div class="mobile-contact-bar" aria-label="Quick contact">
-        <a href="tel:+917906051803">Call now</a>
+        <a href="tel:+917906051803">Achal</a>
+        <a href="tel:+919896216075">Rahul</a>
         <a href="mailto:pnhtech07@gmail.com">Email</a>
       </div>
     </main>
