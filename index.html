@@ -663,12 +663,13 @@ a {
 .client-card {
   background: white;
   border: 1px solid rgba(6, 30, 51, 0.1);
-  display: grid;
-  gap: 18px;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
   min-height: 300px;
   overflow: hidden;
-  padding: 24px;
+  padding: 28px;
   position: relative;
   transition: border-color 180ms ease, transform 180ms ease;
 }
@@ -695,42 +696,37 @@ a {
   transform: scaleX(1);
 }
 
-.client-card-top {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.client-card-top > span {
+.client-card > span {
   color: var(--blue);
   font-family: var(--font-geist-mono), monospace;
   font-size: 11px;
   font-weight: 700;
 }
 
-.client-logo {
+.client-logo-wrap {
   align-items: center;
-  background: #ffffff;
-  border: 1px solid rgba(6, 30, 51, 0.07);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
   display: flex;
+  height: 108px;
   justify-content: center;
-  min-height: 142px;
-  padding: 16px;
+  margin: 0;
+  padding: 8px;
 }
 
-.client-logo img {
+.client-logo {
   display: block;
-  height: 110px;
+  height: 92px;
   object-fit: contain;
   width: 100%;
 }
 
 .client-card h3 {
-  font-size: clamp(20px, 1.7vw, 26px);
+  font-size: clamp(22px, 2vw, 30px);
   font-weight: 650;
   letter-spacing: -0.04em;
   line-height: 1.15;
-  margin: 0;
+  margin: auto 0 0;
 }
 
 .client-card p {
@@ -1231,7 +1227,7 @@ footer > p:last-child {
   }
 
   .client-card {
-    min-height: 286px;
+    min-height: 280px;
   }
 
   .process-grid {
@@ -1321,6 +1317,455 @@ footer > p:last-child {
     transition-duration: 0.01ms !important;
   }
 }
+
+    </style>
+    <style id="contact-redesign">
+/* Premium contact redesign */
+.contact-section.contact-redesign {
+  background:
+    radial-gradient(circle at 92% 6%, rgba(24, 184, 239, 0.18), transparent 27%),
+    radial-gradient(circle at 8% 92%, rgba(11, 148, 216, 0.15), transparent 24%),
+    linear-gradient(135deg, #031727 0%, #062442 54%, #082e4d 100%);
+  color: white;
+  display: block;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(92px, 8vw, 132px) clamp(24px, 6.8vw, 104px);
+  position: relative;
+}
+
+.contact-section.contact-redesign::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  border: 0;
+  border-radius: 0;
+  content: "";
+  height: auto;
+  inset: 0;
+  left: 0;
+  mask-image: linear-gradient(135deg, black, transparent 72%);
+  opacity: 0.75;
+  position: absolute;
+  top: 0;
+  width: auto;
+  z-index: -2;
+}
+
+.contact-section.contact-redesign::after {
+  color: white;
+  content: "PNH";
+  font-size: clamp(190px, 22vw, 410px);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+  line-height: 1;
+  opacity: 0.022;
+  position: absolute;
+  right: -0.04em;
+  top: -0.12em;
+  z-index: -1;
+}
+
+.contact-shell {
+  margin: 0 auto;
+  max-width: 1440px;
+  position: relative;
+}
+
+.contact-heading.contact-heading-modern {
+  align-items: end;
+  display: grid;
+  gap: clamp(36px, 7vw, 110px);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  margin-bottom: clamp(46px, 5vw, 72px);
+}
+
+.contact-heading-modern .section-kicker {
+  margin-bottom: 22px;
+}
+
+.contact-heading.contact-heading-modern h2 {
+  font-size: clamp(48px, 5.3vw, 82px);
+  letter-spacing: -0.058em;
+  line-height: 0.98;
+  margin: 0;
+  max-width: 940px;
+}
+
+.contact-heading-modern h2 em {
+  color: var(--blue-bright);
+  font-style: normal;
+  font-weight: 560;
+}
+
+.contact-heading.contact-heading-modern > p {
+  border-left: 2px solid var(--blue-bright);
+  color: #b9cad6;
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.65;
+  margin: 0 0 4px;
+  max-width: 480px;
+  padding: 5px 0 5px 24px;
+}
+
+.director-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.director-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f4f8fb 100%);
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 20px;
+  box-shadow: 0 26px 70px rgba(0, 11, 23, 0.2);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  min-height: 392px;
+  overflow: hidden;
+  padding: clamp(26px, 3vw, 42px);
+  position: relative;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.director-card::before {
+  background: linear-gradient(90deg, var(--blue), var(--blue-bright));
+  content: "";
+  height: 5px;
+  inset: 0 0 auto;
+  position: absolute;
+}
+
+.director-card-secondary::before {
+  background: linear-gradient(90deg, #18b8ef, #64d5f7);
+}
+
+.director-card:hover {
+  box-shadow: 0 32px 82px rgba(0, 11, 23, 0.28);
+  transform: translateY(-4px);
+}
+
+.director-card-head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.director-location {
+  background: #e8f5fb;
+  border: 1px solid rgba(11,148,216,.16);
+  border-radius: 999px;
+  color: #087bb3;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  padding: 9px 12px;
+  text-transform: uppercase;
+}
+
+.director-avatar {
+  align-items: center;
+  background: var(--navy);
+  border-radius: 50%;
+  color: white;
+  display: inline-flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  font-weight: 750;
+  height: 46px;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  width: 46px;
+}
+
+.director-card-secondary .director-avatar {
+  background: var(--blue);
+}
+
+.director-card h3 {
+  font-size: clamp(29px, 2.6vw, 40px);
+  font-weight: 680;
+  letter-spacing: -0.048em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.director-role {
+  color: #64788a;
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+
+.director-phone-list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin: 32px 0;
+}
+
+.director-phone-list a {
+  background: rgba(6, 36, 66, 0.035);
+  border: 1px solid rgba(6, 30, 51, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 17px;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.director-phone-list a:hover {
+  background: #eaf7fc;
+  border-color: rgba(11,148,216,.36);
+}
+
+.director-phone-list span {
+  color: #7b8d9c;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.director-phone-list strong {
+  font-size: clamp(16px, 1.35vw, 19px);
+  letter-spacing: -0.02em;
+}
+
+.director-card-footer {
+  align-items: center;
+  border-top: 1px solid rgba(6, 30, 51, 0.1);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.director-call {
+  align-items: center;
+  background: var(--navy);
+  color: white;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 750;
+  gap: 18px;
+  justify-content: space-between;
+  min-width: 146px;
+  padding: 14px 16px;
+}
+
+.director-call:hover {
+  background: var(--blue);
+}
+
+.director-call span {
+  color: var(--blue-bright);
+}
+
+.director-card-secondary .director-call span {
+  color: white;
+}
+
+.director-card-footer > span {
+  color: #718597;
+  font-size: 12px;
+  text-align: right;
+}
+
+.contact-info-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 0.8fr 1fr 1.18fr;
+  margin-top: 18px;
+}
+
+.contact-info-card {
+  background: rgba(255,255,255,.065);
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  padding: clamp(24px, 2.6vw, 36px);
+  position: relative;
+}
+
+.contact-info-index {
+  align-items: center;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  color: #98b2c4;
+  display: inline-flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 750;
+  height: 38px;
+  justify-content: center;
+  margin-bottom: 32px;
+  width: 38px;
+}
+
+.contact-info-label {
+  color: var(--blue-bright);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.contact-info-card address,
+.contact-info-card > strong {
+  color: #e9f2f7;
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-style: normal;
+  font-weight: 520;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.contact-info-card > strong {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.contact-info-email {
+  background: linear-gradient(145deg, #0b94d8 0%, #18b8ef 100%);
+  border-color: transparent;
+  box-shadow: 0 18px 48px rgba(0, 119, 181, 0.24);
+}
+
+.contact-info-email .contact-info-index {
+  border-color: rgba(255,255,255,.35);
+  color: white;
+  font-size: 18px;
+}
+
+.contact-info-email .contact-info-label,
+.contact-info-email > strong {
+  color: white;
+}
+
+.contact-info-link {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: 12px;
+  font-weight: 750;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.contact-info-link b {
+  font-size: 18px;
+}
+
+@media (max-width: 1050px) {
+  .contact-heading.contact-heading-modern {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-heading.contact-heading-modern > p {
+    max-width: 620px;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-info-email {
+    grid-column: 1 / -1;
+    min-height: 205px;
+  }
+}
+
+@media (max-width: 760px) {
+  .director-grid,
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-email {
+    grid-column: auto;
+  }
+
+  .director-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-section.contact-redesign {
+    padding: 82px 18px 92px;
+  }
+
+  .contact-heading.contact-heading-modern {
+    gap: 26px;
+    margin-bottom: 38px;
+  }
+
+  .contact-heading.contact-heading-modern h2 {
+    font-size: clamp(43px, 12.4vw, 58px);
+  }
+
+  .contact-heading.contact-heading-modern > p {
+    border-left: 0;
+    border-top: 2px solid var(--blue-bright);
+    padding: 20px 0 0;
+  }
+
+  .director-card {
+    border-radius: 16px;
+    padding: 25px 21px;
+  }
+
+  .director-card-head {
+    margin-bottom: 26px;
+  }
+
+  .director-card h3 {
+    font-size: 30px;
+  }
+
+  .director-phone-list {
+    grid-template-columns: 1fr;
+    margin: 26px 0;
+  }
+
+  .director-card-footer {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .director-call {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .director-card-footer > span {
+    text-align: left;
+  }
+
+  .contact-info-card {
+    border-radius: 16px;
+    min-height: 220px;
+  }
+
+  .mobile-contact-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
     </style>
   </head>
   <body>
@@ -1363,7 +1808,7 @@ footer > p:last-child {
             </a>
           </div>
           <div class="hero-contact">
-            <span>Sales contacts</span>
+            <span>Directors</span>
             <strong>Achal Singhal · Rahul Jain</strong>
             <a href="mailto:pnhtech07@gmail.com">pnhtech07@gmail.com</a>
           </div>
@@ -1458,13 +1903,13 @@ footer > p:last-child {
             semi-finished products.
           </p>
           <p>
-            Reach Achal Singhal or Rahul Jain directly to discuss the material,
+            Reach our directors, Achal Singhal or Rahul Jain, to discuss the material,
             quantity and commercial requirement relevant to your business.
           </p>
 
           <dl class="company-facts">
             <div><dt>Company</dt><dd>PNH Tech Innovations Pvt Ltd</dd></div>
-            <div><dt>Contacts</dt><dd>Achal Singhal · Rahul Jain</dd></div>
+            <div><dt>Directors</dt><dd>Achal Singhal · Rahul Jain</dd></div>
             <div><dt>Location</dt><dd>Muzaffarnagar, Uttar Pradesh</dd></div>
           </dl>
         </div>
@@ -1484,40 +1929,36 @@ footer > p:last-child {
 
         <div class="client-grid" aria-label="PNH Tech Innovations customers">
           <article class="client-card">
-            <div class="client-card-top">
-              <span>01</span>
-              <p>Customer</p>
-            </div>
-            <div class="client-logo">
-              <img src="./assets/client-amba-shakti.webp" width="900" height="272" loading="lazy" decoding="async" alt="Amba Shakti SD TMT logo" />
-            </div>
+            <span>01</span>
+            <figure class="client-logo-wrap">
+              <img class="client-logo" src="./assets/client-amba-shakti.png" width="2000" height="837" loading="lazy" decoding="async" alt="Amba Shakti logo" />
+            </figure>
+            <h3>Amba Shakti</h3>
+            <p>Customer</p>
           </article>
           <article class="client-card">
-            <div class="client-card-top">
-              <span>02</span>
-              <p>Customer</p>
-            </div>
-            <div class="client-logo">
-              <img src="./assets/client-tehri-mahashakti.webp" width="239" height="179" loading="lazy" decoding="async" alt="Tehri Mahashakti TMT logo" />
-            </div>
+            <span>02</span>
+            <figure class="client-logo-wrap">
+              <img class="client-logo" src="./assets/client-tehri-mahashakti.png" width="852" height="315" loading="lazy" decoding="async" alt="Tehri Mahashakti TMT logo" />
+            </figure>
+            <h3>Tehri Iron &amp; Steels</h3>
+            <p>Customer</p>
           </article>
           <article class="client-card">
-            <div class="client-card-top">
-              <span>03</span>
-              <p>Customer</p>
-            </div>
-            <div class="client-logo">
-              <img src="./assets/client-rana-max.webp" width="368" height="320" loading="lazy" decoding="async" alt="Rana Max TMT Sariya logo" />
-            </div>
+            <span>03</span>
+            <figure class="client-logo-wrap">
+              <img class="client-logo" src="./assets/client-rana-max.png" width="1016" height="766" loading="lazy" decoding="async" alt="Rana Max logo" />
+            </figure>
+            <h3>Rana Max</h3>
+            <p>Customer</p>
           </article>
           <article class="client-card">
-            <div class="client-card-top">
-              <span>04</span>
-              <p>Customer</p>
-            </div>
-            <div class="client-logo">
-              <img src="./assets/client-steel-guru.webp" width="412" height="69" loading="lazy" decoding="async" alt="Steel Guru — The Real TMT Saria logo" />
-            </div>
+            <span>04</span>
+            <figure class="client-logo-wrap">
+              <img class="client-logo" src="./assets/client-steel-guru.png" width="447" height="447" loading="lazy" decoding="async" alt="Steel Guru logo" />
+            </figure>
+            <h3>Swaroop Saria</h3>
+            <p>Customer</p>
           </article>
         </div>
       </section>
@@ -1536,7 +1977,7 @@ footer > p:last-child {
             <div class="process-step-copy">
               <span>01</span>
               <h3>Connect directly</h3>
-              <p>Call Achal Singhal or Rahul Jain, or email our team using the details below.</p>
+              <p>Call our directors, Achal Singhal or Rahul Jain, or email our team using the details below.</p>
             </div>
           </li>
           <li>
@@ -1562,62 +2003,90 @@ footer > p:last-child {
         </ol>
       </section>
 
-      <section class="contact-section" id="contact">
-        <div class="contact-heading">
-          <p class="section-kicker section-kicker-light">Contact PNH</p>
-          <h2>Let’s talk<br />materials.</h2>
-          <p>
-            For product requirements, availability and commercial enquiries,
-            contact Achal Singhal or Rahul Jain.
-          </p>
-        </div>
-
-        <div class="contact-panel">
-          <div class="contact-people">
-            <div class="contact-person-card">
-              <p>Muzaffarnagar contact</p>
-              <h3>Achal Singhal</h3>
-              <span>PNH Tech Innovations Pvt Ltd</span>
-              <a href="tel:+917906051803">+91 79060 51803</a>
-              <a href="tel:+919084681803">+91 90846 81803</a>
-              <small>Muzaffarnagar, Uttar Pradesh</small>
+      <section class="contact-section contact-redesign" id="contact">
+        <div class="contact-shell">
+          <div class="contact-heading contact-heading-modern">
+            <div>
+              <p class="section-kicker section-kicker-light">Direct material enquiries</p>
+              <h2>Let’s move your requirement <em>forward.</em></h2>
             </div>
-            <div class="contact-person-card">
-              <p>Panipat contact</p>
-              <h3>Rahul Jain</h3>
-              <span>PNH Tech Innovations Pvt Ltd</span>
-              <a href="tel:+919896216075">+91 98962 16075</a>
-              <small>Panipat, Haryana</small>
-            </div>
+            <p>
+              Speak directly with a director for material availability,
+              specifications and commercial discussions.
+            </p>
           </div>
 
-          <div class="contact-links">
-            <div class="contact-row">
-              <span>Email</span>
-              <a href="mailto:pnhtech07@gmail.com">pnhtech07@gmail.com</a>
-            </div>
-            <div class="contact-row contact-address">
-              <span>Registered office</span>
+          <div class="director-grid">
+            <article class="director-card">
+              <div class="director-card-head">
+                <span class="director-location">Muzaffarnagar desk</span>
+                <span class="director-avatar" aria-hidden="true">AS</span>
+              </div>
+              <h3>Director Achal Singhal</h3>
+              <p class="director-role">PNH Tech Innovations Pvt Ltd</p>
+              <div class="director-phone-list">
+                <a href="tel:+917906051803">
+                  <span>Direct line 01</span>
+                  <strong>+91 79060 51803</strong>
+                </a>
+                <a href="tel:+919084681803">
+                  <span>Direct line 02</span>
+                  <strong>+91 90846 81803</strong>
+                </a>
+              </div>
+              <div class="director-card-footer">
+                <a class="director-call" href="tel:+917906051803">Call Achal <span aria-hidden="true">↗</span></a>
+                <span>Muzaffarnagar, Uttar Pradesh</span>
+              </div>
+            </article>
+
+            <article class="director-card director-card-secondary">
+              <div class="director-card-head">
+                <span class="director-location">Panipat desk</span>
+                <span class="director-avatar" aria-hidden="true">RJ</span>
+              </div>
+              <h3>Director Rahul Jain</h3>
+              <p class="director-role">PNH Tech Innovations Pvt Ltd</p>
+              <div class="director-phone-list">
+                <a href="tel:+919896216075">
+                  <span>Direct line</span>
+                  <strong>+91 98962 16075</strong>
+                </a>
+              </div>
+              <div class="director-card-footer">
+                <a class="director-call" href="tel:+919896216075">Call Rahul <span aria-hidden="true">↗</span></a>
+                <span>Panipat, Haryana</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="contact-info-grid">
+            <a class="contact-info-card contact-info-email" href="mailto:pnhtech07@gmail.com?subject=Material%20Enquiry%20for%20PNH%20Tech%20Innovations">
+              <span class="contact-info-index" aria-hidden="true">@</span>
+              <span class="contact-info-label">Email enquiries</span>
+              <strong>pnhtech07@gmail.com</strong>
+              <span class="contact-info-link">Write to PNH <b aria-hidden="true">↗</b></span>
+            </a>
+
+            <article class="contact-info-card">
+              <span class="contact-info-index" aria-hidden="true">01</span>
+              <span class="contact-info-label">Registered office</span>
               <address>
                 448/3, South Civil Lines, Keshavpuri<br />
                 Muzaffarnagar – 2501002<br />
                 Uttar Pradesh, India
               </address>
-            </div>
-            <div class="contact-row contact-address">
-              <span>Godown address</span>
+            </article>
+
+            <article class="contact-info-card">
+              <span class="contact-info-index" aria-hidden="true">02</span>
+              <span class="contact-info-label">Godown address</span>
               <address>
-                KHASRA NO. 1289 &amp; 1293, VILLAGE VEHLNA<br />
+                Khasra No. 1289 &amp; 1293, Village Vehlna<br />
                 Rana Chowk, Muzaffarnagar, Uttar Pradesh<br />
                 251003, India
               </address>
-            </div>
-          </div>
-
-          <div class="contact-actions">
-            <a class="button button-primary" href="tel:+917906051803">Call Achal <span aria-hidden="true">↗</span></a>
-            <a class="button contact-email-button" href="tel:+919896216075">Call Rahul <span aria-hidden="true">↗</span></a>
-            <a class="button contact-email-button" href="mailto:pnhtech07@gmail.com?subject=Material%20Enquiry%20for%20PNH%20Tech%20Innovations">Send an email <span aria-hidden="true">↗</span></a>
+            </article>
           </div>
         </div>
       </section>
