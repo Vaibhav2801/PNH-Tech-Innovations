@@ -663,12 +663,12 @@ a {
 .client-card {
   background: white;
   border: 1px solid rgba(6, 30, 51, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 220px;
+  display: grid;
+  gap: 18px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 300px;
   overflow: hidden;
-  padding: 28px;
+  padding: 24px;
   position: relative;
   transition: border-color 180ms ease, transform 180ms ease;
 }
@@ -695,15 +695,38 @@ a {
   transform: scaleX(1);
 }
 
-.client-card > span {
+.client-card-top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.client-card-top > span {
   color: var(--blue);
   font-family: var(--font-geist-mono), monospace;
   font-size: 11px;
   font-weight: 700;
 }
 
+.client-logo {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(6, 30, 51, 0.07);
+  display: flex;
+  justify-content: center;
+  min-height: 142px;
+  padding: 16px;
+}
+
+.client-logo img {
+  display: block;
+  height: 110px;
+  object-fit: contain;
+  width: 100%;
+}
+
 .client-card h3 {
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(20px, 1.7vw, 26px);
   font-weight: 650;
   letter-spacing: -0.04em;
   line-height: 1.15;
@@ -1208,7 +1231,7 @@ footer > p:last-child {
   }
 
   .client-card {
-    min-height: 190px;
+    min-height: 286px;
   }
 
   .process-grid {
@@ -1298,7 +1321,6 @@ footer > p:last-child {
     transition-duration: 0.01ms !important;
   }
 }
-
     </style>
   </head>
   <body>
@@ -1462,24 +1484,44 @@ footer > p:last-child {
 
         <div class="client-grid" aria-label="PNH Tech Innovations customers">
           <article class="client-card">
-            <span>01</span>
+            <div class="client-card-top">
+              <span>01</span>
+              <p>Customer</p>
+            </div>
+            <div class="client-logo">
+              <img src="./assets/client-amba-shakti.webp" width="900" height="272" loading="lazy" decoding="async" alt="Amba Shakti SD TMT logo" />
+            </div>
             <h3>Amba Shakti</h3>
-            <p>Customer</p>
           </article>
           <article class="client-card">
-            <span>02</span>
+            <div class="client-card-top">
+              <span>02</span>
+              <p>Customer</p>
+            </div>
+            <div class="client-logo">
+              <img src="./assets/client-tehri-mahashakti.webp" width="239" height="179" loading="lazy" decoding="async" alt="Tehri Mahashakti TMT logo" />
+            </div>
             <h3>Tehri Iron &amp; Steels</h3>
-            <p>Customer</p>
           </article>
           <article class="client-card">
-            <span>03</span>
+            <div class="client-card-top">
+              <span>03</span>
+              <p>Customer</p>
+            </div>
+            <div class="client-logo">
+              <img src="./assets/client-rana-max.webp" width="368" height="320" loading="lazy" decoding="async" alt="Rana Max TMT Sariya logo" />
+            </div>
             <h3>Rana Max</h3>
-            <p>Customer</p>
           </article>
           <article class="client-card">
-            <span>04</span>
+            <div class="client-card-top">
+              <span>04</span>
+              <p>Customer</p>
+            </div>
+            <div class="client-logo">
+              <img src="./assets/client-steel-guru.webp" width="412" height="69" loading="lazy" decoding="async" alt="Steel Guru — The Real TMT Saria logo" />
+            </div>
             <h3>Swaroop Saria</h3>
-            <p>Customer</p>
           </article>
         </div>
       </section>
